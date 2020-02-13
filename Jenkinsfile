@@ -15,7 +15,7 @@ pipeline {
             steps {
                 timestamps {
                     withMaven(maven: '(Default)', mavenLocalRepo: '.repository', mavenOpts: '-Xmx6g -Xms2g -XX:-UseGCOverheadLimit') {
-                        bat "mvn -Dsonar.branch.name=$BRANCH_NAME clean verify sonar:sonar"
+                        bat "mvn -Dsonar.branch.name=$BRANCH_NAME clean verify"
                     }
                 }
             }
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 timestamps {
                     withMaven(maven: '(Default)', mavenLocalRepo: '.repository', mavenOpts: '-Xmx6g -Xms2g -XX:-UseGCOverheadLimit') {
-                        bat "mvn -Dsonar.branch.name=$CHANGE_BRANCH -Dsonar.branch.target=$CHANGE_TARGET clean verify sonar:sonar"
+                        bat "mvn -Dsonar.branch.name=$CHANGE_BRANCH -Dsonar.branch.target=$CHANGE_TARGET clean verify"
                     }
                 }
             }
