@@ -51,9 +51,19 @@ pipeline {
             }
         }
 
-        // stage('Deploy to second Repository') {
-            // TODO
-        // }
+        stage('Deploy to second Repository') {
+            when {
+                environment name: 'BRANCH_NAME', value: master
+            }
+
+            steps {
+                timestamps {
+                    withMaven(maven: '(Default)', mavenLocalRepo: '.repository', mavenOpts: '-Xmx6g -Xms2g -XX:-UseGCOverheadLimit') {
+                        bat "mvn javadoc:jar source:jar deploy -DskipTests -Pgod-release-deploy"
+                    }
+                }
+            }
+        }
     }
 
     post {
