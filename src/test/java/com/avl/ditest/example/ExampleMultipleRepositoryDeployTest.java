@@ -8,7 +8,7 @@ public class ExampleMultipleRepositoryDeployTest {
  
 	@Test
     public void sampleMethod() {
-      fail("Implement this Test");
+        ExampleMultipleRepositoryDeploy.sampleMethod();
     }
  
 }
