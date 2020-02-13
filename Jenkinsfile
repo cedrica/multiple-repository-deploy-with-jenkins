@@ -51,9 +51,9 @@ pipeline {
             }
         }
 
-        stage('Deploy to second Repository') {
+        // stage('Deploy to second Repository') {
             // TODO
-        }
+        // }
     }
 
     post {
