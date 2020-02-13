@@ -53,7 +53,7 @@ pipeline {
 
         stage('Deploy to second Repository') {
             when {
-                environment name: 'BRANCH_NAME', value: master
+                environment name: 'BRANCH_NAME', value: 'master'
             }
 
             steps {
