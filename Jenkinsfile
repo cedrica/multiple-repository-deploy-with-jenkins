@@ -6,6 +6,10 @@ pipeline {
         jdk '1.8.0_144_x64' 
     }
 
+    environment {
+        BITBUCKET_COMMON_CREDS     = credentials('AVL-Ext-Repo-Deploy-User')
+    }
+
     stages {
         stage('Build from branch') {
             when {
@@ -59,7 +63,7 @@ pipeline {
             steps {
                 timestamps {
                     withMaven(maven: '(Default)', mavenLocalRepo: '.repository', mavenOpts: '-Xmx6g -Xms2g -XX:-UseGCOverheadLimit') {
-                        bat "mvn javadoc:jar source:jar deploy -DskipTests -Pgod-release-deploy"
+                        bat "mvn javadoc:jar source:jar deploy -DskipTests -Dusername=$BITBUCKET_COMMON_CREDS_USR -password=$BITBUCKET_COMMON_CREDS_PSW  -Pgod-release-deploy"
                     }
                 }
             }
