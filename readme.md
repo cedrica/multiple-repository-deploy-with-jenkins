@@ -18,3 +18,4 @@
 
 - Jenkins Credentials configuration
 - Artifactory configuration
+- Maven settings.xml Server configuration
