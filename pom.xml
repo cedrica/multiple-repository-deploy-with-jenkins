@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.avl.ditest.example</groupId>
     <artifactId>multiple-repository-deploy</artifactId>
-    <version>0.0.8</version>
+    <version>0.0.9</version>
 
     <prerequisites>
         <maven>3.5.3</maven>
