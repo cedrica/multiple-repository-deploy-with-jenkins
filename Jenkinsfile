@@ -63,7 +63,7 @@ pipeline {
             steps {
                 timestamps {
                     withMaven(maven: '(Default)', mavenLocalRepo: '.repository', mavenOpts: '-Xmx6g -Xms2g -XX:-UseGCOverheadLimit') {
-                        bat "mvn -X -e javadoc:jar source:jar deploy -DskipTests -Dusername=\"$BITBUCKET_COMMON_CREDS_USR\" -Dpassword=\"$BITBUCKET_COMMON_CREDS_PSW\"  -Pgod-release-deploy"
+                        bat "mvn -X -e javadoc:jar source:jar deploy -DskipTests -Dusername=$BITBUCKET_COMMON_CREDS_USR -Dpassword=\"$BITBUCKET_COMMON_CREDS_PSW\"  -Pgod-release-deploy"
                     }
                 }
             }
